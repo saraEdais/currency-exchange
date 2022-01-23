@@ -1,0 +1,52 @@
+.sendComponent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 48px;
+}
+.sendForm{
+  margin: 0px 40px 0px 0px;
+}
+.description {
+  display: flex;
+  flex-direction: column;
+}
+.description div{
+  display: flex;
+}
+h2 {
+  margin: 0px 0px 8px;
+  color: rgb(46, 60, 87);
+}
+p {
+  color: rgb(92, 102, 123);
+  margin: 0px 0px 24px;
+  font-size: 17px;
+}
+ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+li {
+  margin: 16px 0px;
+  font-size: 17px;
+}
+.icon {
+  font-size: 20px;
+  color: blue;
+  margin: 0px 12px 0px 0px;
+}
+.bankIconDiv{
+  margin: 40px 0px 0px;
+}
+.bankIcon{
+  font-size: 18px;
+  color: black;
+  margin-right: 12px;
+  background-color: rgb(218, 216, 216);
+  border: 1px solid rgba(0, 17, 51, 0.15);
+  border-radius: 2px;
+  width: 35px;
+  height: 20px;
+}
