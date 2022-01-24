@@ -32,7 +32,7 @@ li {
   margin: 16px 0px;
   font-size: 17px;
 }
-.icon {
+.CheckCircleOutlinedIcon {
   font-size: 20px;
   color: blue;
   margin: 0px 12px 0px 0px;
@@ -43,7 +43,19 @@ li {
 .bankIcon{
   font-size: 18px;
   color: black;
-  margin-right: 12px;
+  margin: 0px;
+  background-color: rgb(218, 216, 216);
+  border: 1px solid rgba(0, 17, 51, 0.15);
+  border-radius: 2px;
+  width: 35px;
+  height: 20px;
+}
+.icon{
+  font-size: 12px;
+  align-items: center;
+  justify-content: center;
+  color: black;
+  margin: 0px 6px 0px 0px;
   background-color: rgb(218, 216, 216);
   border: 1px solid rgba(0, 17, 51, 0.15);
   border-radius: 2px;
