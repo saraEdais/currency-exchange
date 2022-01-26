@@ -4,7 +4,7 @@ import React from 'react'
 const DropDownList = (props) => {
     return (
         <div className={classes.dropDownDiv}>
-            <select className={classes.select}>
+            <select className={classes.select} onChange={props.onSelectCurrencyHandler}>
                 {/* {props.list.map((item, index) => {
                     return (
                       <option>
@@ -14,8 +14,9 @@ const DropDownList = (props) => {
                 })} */}
                 {
                     Object.keys(props.list).map((key, index) => (
-                        <option key={index}>
+                        <option value={props.list[key].currencyId} key={index}>
                             {props.list[key].currencyId} - {props.list[key].currencyName}
+                            {/* {console.log("value", props.list[key].id)} */}
                         </option>
                     ))
                 }
