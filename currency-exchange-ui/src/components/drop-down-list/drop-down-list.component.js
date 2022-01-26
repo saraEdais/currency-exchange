@@ -5,13 +5,20 @@ const DropDownList = (props) => {
     return (
         <div className={classes.dropDownDiv}>
             <select className={classes.select}>
-                {props.list.map((item, index) => {
+                {/* {props.list.map((item, index) => {
                     return (
                       <option>
                           {item}
                       </option>  
                     );
-                })}
+                })} */}
+                {
+                    Object.keys(props.list).map((key, index) => (
+                        <option key={index}>
+                            {props.list[key].currencyId} - {props.list[key].currencyName}
+                        </option>
+                    ))
+                }
             </select>
         </div>
     )

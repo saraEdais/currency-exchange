@@ -1,0 +1,10 @@
+.amountInput {
+    border: 1px solid rgb(221, 221, 221);
+    border-radius: 6px;
+    /* height: 40px; */
+    /* width: max-content; */
+
+    /* border: none; */
+    height: 40px;
+    font-size: 20px;
+}
