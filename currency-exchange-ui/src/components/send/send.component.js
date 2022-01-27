@@ -33,7 +33,7 @@ const Send = () => {
         </li>
       </ul>
       <div className={classes.bankIconDiv}>
-      <div className={classes.icon} style={{backgroundColor:"rgb(26, 31, 113)",color:"white"}}>
+        <div className={classes.icon} style={{ backgroundColor: "rgb(26, 31, 113)", color: "white" }}>
           VISA
         </div>
         <div className={classes.icon}>

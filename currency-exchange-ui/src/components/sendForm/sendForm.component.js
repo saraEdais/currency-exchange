@@ -37,14 +37,14 @@ const SendForm = (props) => {
                     onChange={(e) => { setReceiverName(e.target.value) }} />
             </div>
         </div>
-        <div style={{display:"flex"}}>
+        <div style={{ display: "flex" }}>
             <div className={classes.inputDiv}>
                 <span>Amount</span>
                 <input type="text" placeholder='amount' />
             </div>
             <div className={classes.inputDiv}>
                 <span>Country</span>
-                <input />
+                <input type="text" placeholder='country' />
             </div>
         </div>
         <div className={classes.inputDiv}>
@@ -54,11 +54,14 @@ const SendForm = (props) => {
                 placeholder='visa card'
                 value={visaCardValue}
                 onChange={(e) => setVisaCardValue(e.target.value)}
-                style={{width:"94%"}} />
+                style={{ width: "94%" }} />
         </div>
 
         <div>
-            <button onClick={onClickSendHandler}>send</button>
+            <button
+                className={classes.buttonStyle}
+                onClick={onClickSendHandler}>send
+            </button>
         </div>
     </div>;
 };

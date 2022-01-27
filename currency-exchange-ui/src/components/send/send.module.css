@@ -14,21 +14,21 @@
 .description div{
   display: flex;
 }
-h2 {
+.description h2 {
   margin: 0px 0px 8px;
   color: rgb(46, 60, 87);
 }
-p {
+.description p {
   color: rgb(92, 102, 123);
   margin: 0px 0px 24px;
   font-size: 17px;
 }
-ul {
+.description ul {
   list-style: none;
   margin: 0px;
   padding: 0px;
 }
-li {
+.description li {
   margin: 16px 0px;
   font-size: 17px;
 }
