@@ -4,17 +4,13 @@ import React from 'react'
 const DropDownList = (props) => {
     return (
         <div className={classes.dropDownDiv}>
+           
             <select className={classes.select} onChange={props.onSelectCurrencyHandler}>
-                {/* {props.list.map((item, index) => {
-                    return (
-                      <option>
-                          {item}
-                      </option>  
-                    );
-                })} */}
                 {
                     Object.keys(props.list).map((key, index) => (
                         <option value={props.list[key].currencyId} key={index}>
+                            {/* <img src='https://flagcdn.com/20x15/ps.png' /> */}
+                            {/* {props.flags["ps"]} */}
                             {props.list[key].currencyId} - {props.list[key].currencyName}
                             {/* {console.log("value", props.list[key].id)} */}
                         </option>

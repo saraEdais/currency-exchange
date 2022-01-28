@@ -1,9 +1,10 @@
 import classes from './convert.module.css';
 import React, { useEffect, useState } from 'react';
-import DropDownList from '../../components/drop-down-list/drop-down-list.component';
-import Switcher from '../../components/switcher/switcher.component';
-import AmountInput from '../../components/amount-input/amount.component';
-import ButtonComp from '../../components/button/button.component';
+import DropDownList from '../drop-down-list/drop-down-list.component';
+import Switcher from '../switcher/switcher.component';
+import AmountInput from '../amount-input/amount.component';
+import ButtonComp from '../button/button.component';
+import ConvertResult from '../convert-result/convert-result.component';
 
 
 const Convert = () => {
@@ -17,28 +18,33 @@ const Convert = () => {
 
     const [amountValue, setAmountValue] = useState(1);
     const [exchangeRate, setExchangeRate] = useState();
-
-    const [currenciesId, setCurrenciesId] = useState();
+    const [reverseExchangeRate, setReverseExchangeRate] = useState();
 
     const [currency, setCurrency] = useState({});
+    const [flags, setFlags] = useState({});
+
     useEffect(async () => {
         await fetch('https://free.currconv.com/api/v7/countries?apiKey=bf19efdeacde3c60c111')
             .then(async (res) => {
                 const result = await res.json();
-                console.log(result.results);
+                console.log("result.results", result.results);
                 setCurrency(result.results);
-                // console.log("cur", currency)
             })
             .catch((error) => {
                 console.log(error);
             });
 
-        // setFirstCurrency(currency[Object.keys(currency)[0]]);
-        // console.log("currency[Object.keys(currency)[0]]", currency[Object.keys(currency)[0]])
+        await fetch('https://flagcdn.com/en/codes.json')
+            .then(async (res) => {
+                const result = await res.json();
+                console.log("flag: ", result);
+                setFlags(result);
+            })
+            .catch((error) => console.log(error));
+
     }, []);
 
     const onSelectFirstCurrencyHandler = (e) => {
-        // console.log("value", e.target.value)
         setFirstCurrency(e.target.value);
     }
     const onSelectSecondCurrencyHandler = (e) => {
@@ -55,23 +61,39 @@ const Convert = () => {
             .then(async (res) => {
                 const result = await res.json();
                 console.log("result: ", result);
-                // const t = {`firstCurrency + "_" + secondCurrency`};
-                setCurrenciesId(`${firstCurrency}_${secondCurrency}`);
+                const currenciesId = `${firstCurrency}_${secondCurrency}`;
                 console.log("currenciesId: ", currenciesId);
-                setExchangeRate(result.currenciesId); //change 
-                console.log("exchange rate: ", result.currenciesId);
+                setExchangeRate(result[currenciesId]);
+                console.log("exchange rate: ", result[currenciesId]);
             })
             .catch((error) => console.log(error));
+
+        await fetch(`https://free.currconv.com/api/v7/convert?q=${secondCurrency}_${firstCurrency}&compact=ultra&apiKey=bf19efdeacde3c60c111`)
+            .then(async (res) => {
+                const result = await res.json();
+                console.log("result: ", result);
+                const currenciesId = `${secondCurrency}_${firstCurrency}`;
+                console.log("currenciesId: ", currenciesId);
+                setReverseExchangeRate(result[currenciesId]);
+                console.log("reverse exchange rate: ", result[currenciesId]);
+            })
+            .catch((error) => console.log(error));
+    }
+
+    const onSwitchHandler = () => {
+        
+
     }
 
     return (
         <div>
             convert
-            <DropDownList list={currency} onSelectCurrencyHandler={onSelectFirstCurrencyHandler} />
-            <Switcher />
+            <DropDownList flags={flags} list={currency} onSelectCurrencyHandler={onSelectFirstCurrencyHandler} />
+            <Switcher onSwitchHandler={onSwitchHandler} />
             <DropDownList list={currency} onSelectCurrencyHandler={onSelectSecondCurrencyHandler} />
             <AmountInput value={amountValue} onAmountValueChangeHandler={onAmountValueChangeHandler} />
             <ButtonComp buttonName={buttonName} onConvertHandler={onConvertHandler} />
+            <ConvertResult currency={currency} firstCurrency={firstCurrency} secondCurrency={secondCurrency} amountValue={amountValue} exchangeRate={exchangeRate} reverseExchangeRate={reverseExchangeRate} />
         </div>
     );
 };
