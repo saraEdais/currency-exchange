@@ -81,17 +81,22 @@ const Convert = () => {
     }
 
     const onSwitchHandler = () => {
-        
+
 
     }
 
     return (
-        <div>
-            convert
-            <DropDownList flags={flags} list={currency} onSelectCurrencyHandler={onSelectFirstCurrencyHandler} />
-            <Switcher onSwitchHandler={onSwitchHandler} />
-            <DropDownList list={currency} onSelectCurrencyHandler={onSelectSecondCurrencyHandler} />
-            <AmountInput value={amountValue} onAmountValueChangeHandler={onAmountValueChangeHandler} />
+        <div className={classes.convert}>
+            <div className={classes.convertBox}>
+                <label>Amount</label>
+                <AmountInput value={amountValue} onAmountValueChangeHandler={onAmountValueChangeHandler} />
+                <label>From</label>
+                <DropDownList flags={flags} list={currency} onSelectCurrencyHandler={onSelectFirstCurrencyHandler} />
+                <Switcher onSwitchHandler={onSwitchHandler} />
+                <label>To</label>
+                <DropDownList list={currency} onSelectCurrencyHandler={onSelectSecondCurrencyHandler} />
+            </div>
+
             <ButtonComp buttonName={buttonName} onConvertHandler={onConvertHandler} />
             <ConvertResult currency={currency} firstCurrency={firstCurrency} secondCurrency={secondCurrency} amountValue={amountValue} exchangeRate={exchangeRate} reverseExchangeRate={reverseExchangeRate} />
         </div>
