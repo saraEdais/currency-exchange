@@ -1,0 +1,37 @@
+.alertsComponent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 48px;
+}
+.subscribePart {
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+  align-items: center;
+}
+.alertImg {
+  margin: 20px;
+}
+.alertInput {
+  height: 24px;
+  margin: 10px 3px 40px 0px;
+  width: 100%;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  box-shadow: rgb(0 17 51 / 5%) 0px 3px 15px;
+  padding: 5px;
+  color: rgb(20, 30, 55);
+  background: none;
+}
+.alertInputEnter {
+  height: 24px;
+  margin: 10px 3px 3px 0px;
+  width: 100%;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  box-shadow: rgb(0 17 51 / 5%) 0px 3px 15px;
+  padding: 5px;
+  color: rgb(20, 30, 55);
+  background: none;
+}
