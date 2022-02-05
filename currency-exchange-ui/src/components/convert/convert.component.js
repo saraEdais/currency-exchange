@@ -21,7 +21,6 @@ const Convert = () => {
     const [reverseExchangeRate, setReverseExchangeRate] = useState();
 
     const [currency, setCurrency] = useState({});
-    const [flags, setFlags] = useState({});
 
     useEffect(async () => {
         await fetch('https://free.currconv.com/api/v7/countries?apiKey=bf19efdeacde3c60c111')
@@ -33,15 +32,6 @@ const Convert = () => {
             .catch((error) => {
                 console.log(error);
             });
-
-        await fetch('https://flagcdn.com/en/codes.json')
-            .then(async (res) => {
-                const result = await res.json();
-                console.log("flag: ", result);
-                setFlags(result);
-            })
-            .catch((error) => console.log(error));
-
     }, []);
 
     const onSelectFirstCurrencyHandler = (e) => {
