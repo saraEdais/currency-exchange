@@ -1,0 +1,80 @@
+.wrapper {
+  display: flex;
+  position: relative;
+}
+.logo {
+  width: 80px;
+  height: 70px;
+  padding-left: 30px;
+}
+.coverPhoto {
+  width: 100%;
+  height: 410px;
+  z-index: -1;
+}
+.navbar {
+  display: flex;
+  width: 97%;
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 10px;
+}
+
+.dropbtn {
+  background-color: transparent;
+  border: none;
+  padding: 8px 30px;
+  font-size: 16px;
+  font-family: sans-serif;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+}
+
+.getButton {
+  background-color: #0071eb;
+  color: rgb(255, 255, 255);
+  font-size: 14px;
+  font-family: sans-serif;
+  border: 2px solid rgb(0, 113, 235);
+  border-radius: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+.dropdown{
+  position: relative;
+  display: inline-block;
+}
+
+
+.navBarItem {
+  display: flex;
+}
+
+/* THE TOP SHAPE*/
+.dropdownContent :after {
+  content: "";
+  position: absolute;
+  left: 50px;
+  top: -22px;
+  border: 10px solid transparent;
+  border-bottom: 25px solid rgb(255, 255, 255);
+  z-index: 2;
+}
+
+
+.dropdownContent {
+  display: none;
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  min-width: 270px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdownContent {
+  display: block;
+  margin-top: 15px;
+}
+
