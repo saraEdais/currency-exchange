@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import classes from "./sendForm.module.css";
+import DropDownList from '../drop-down-list/drop-down-list.component';
 
 const SendForm = (props) => {
     const [senderName, setSenderName] = useState("");
     const [receiverName, setReceiverName] = useState("");
+    const [amount, setAmount] = useState("");
+    const [currency, setCurrency] = useState("");
     const [visaCardValue, setVisaCardValue] = useState("");
 
     const onClickSendHandler = () => {
@@ -40,11 +43,20 @@ const SendForm = (props) => {
         <div style={{ display: "flex" }}>
             <div className={classes.inputDiv}>
                 <span>Amount</span>
-                <input type="text" placeholder='amount' />
+                <input
+                    type="text"
+                    placeholder='amount'
+                    value={amount}
+                    onChange={(e) => { setAmount(e.target.value) }} />
             </div>
             <div className={classes.inputDiv}>
-                <span>Country</span>
-                <input type="text" placeholder='country' />
+                <span>Currency</span>
+                <input
+                    type="text"
+                    placeholder='select currency'
+                    value={currency}
+                    onChange={(e) => setCurrency(e.target.value)}
+                />
             </div>
         </div>
         <div className={classes.inputDiv}>
@@ -60,7 +72,8 @@ const SendForm = (props) => {
         <div>
             <button
                 className={classes.buttonStyle}
-                onClick={onClickSendHandler}>send
+                onClick={onClickSendHandler}>
+                send
             </button>
         </div>
     </div>;
