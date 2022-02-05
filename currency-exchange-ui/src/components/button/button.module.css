@@ -1,0 +1,29 @@
+.buttonComp {
+  display: inline-flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  min-width: 0px;
+  width: auto;
+  cursor: pointer;
+  margin: 0px;
+  outline-offset: 4px;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  transition-property: background-color, border-color;
+  transition-duration: 0.3s;
+  padding: 9px 11px;
+  font-size: 17px;
+  color: rgb(255, 255, 255);
+  background: rgb(0, 113, 235);
+  border: 2px solid rgb(0, 113, 235);
+  border-radius: 8px;
+}
+
+.buttonComp:hover {
+  background: rgb(92, 160, 233);
+  border: 2px solid rgb(92, 160, 233);
+  padding: 10px 12px;
+}

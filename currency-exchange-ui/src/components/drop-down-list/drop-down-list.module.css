@@ -1,0 +1,13 @@
+.flagsStyle {
+  border-radius: 5px;
+  margin: 2px 7px 2px 0px;
+  width: 11%;
+}
+.dropDownListDiv {
+  width: 320px;
+  height: 250px;
+  overflow-y: scroll;
+  border-radius: 5px;
+  padding: 12px;
+  display: none;
+}

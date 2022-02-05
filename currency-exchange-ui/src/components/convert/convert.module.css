@@ -1,0 +1,26 @@
+.convertComponent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px;
+}
+.convertInputsDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 98%;
+  position: relative;
+}
+.convertButtonDiv {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+.amountIcon{
+  font-size: 20px;
+  position: absolute;
+  top: 39px;
+  color:black;
+}
