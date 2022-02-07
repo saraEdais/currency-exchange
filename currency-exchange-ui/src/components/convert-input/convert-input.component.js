@@ -7,7 +7,7 @@ const ConvertInput = (props) => {
       <input
       className={classes.currencyInput}
        type="text" 
-       placeholder='type to search ...'
+       placeholder={props.placeholder}
        value={props.value} 
        onChange={props.onChangeHandler}/>
   </div>;

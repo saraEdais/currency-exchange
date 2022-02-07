@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import classes from "./send.module.css";
 import { CheckCircleOutlined, BankOutlined } from "@ant-design/icons"
 import SendForm from '../sendForm/sendForm.component';
+import { useLocation } from 'react-router-dom';
 
-const Send = () => {
+const Send = (props) => {
+  let location = useLocation();
+
+  useEffect(() => {
+    props.PathNameHandel(location.pathname)
+  }, []);
 
   return <div className={classes.sendComponent}>
     <div className={classes.sendForm}>

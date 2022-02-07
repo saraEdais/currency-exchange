@@ -3,11 +3,27 @@
   margin: 2px 7px 2px 0px;
   width: 11%;
 }
-.dropDownListDiv {
-  width: 320px;
+.dropDownListDiv1 {
+  width: 27%;
   height: 250px;
   overflow-y: scroll;
   border-radius: 5px;
   padding: 12px;
-  display: none;
+  position: absolute;
+  top: 111%;
+  left: 33%;
+  background-color: yellow;
+  /* display: none; */
+}
+.dropDownListDiv2 {
+  width: 27%;
+  height: 250px;
+  overflow-y: scroll;
+  border-radius: 5px;
+  padding: 12px;
+  position: absolute;
+  top: 111%;
+  left: 74%;
+  background-color: yellow;
+  /* display: none; */ 
 }

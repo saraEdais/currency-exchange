@@ -9,9 +9,11 @@
   flex-direction: column;
   justify-content:center;
   align-items: center;
+  margin:25px;
 }
 .alertImg {
   margin: 20px;
+  width: 60%;
 }
 .alertInput {
   height: 24px;

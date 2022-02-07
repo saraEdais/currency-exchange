@@ -8,7 +8,7 @@ const ConvertResult = (props) => {
                 {props.amountValue} {props.firstCurrency} =
             </p>
             <h2>
-                {props.output} {props.secondCurrency}
+                {(props.amountValue)*(props.exchangeRate)} {props.secondCurrency}
             </h2>
             <div className={classes.currencyRateDiv}>
                 <div className={classes.currency}>

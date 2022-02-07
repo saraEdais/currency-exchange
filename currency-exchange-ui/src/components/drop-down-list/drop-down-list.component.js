@@ -4,7 +4,7 @@ import React from 'react'
 const DropDownList = (props) => {
     return (
 
-        <div className={classes.dropDownListDiv}>
+        <div className={props.style==="1"?classes.dropDownListDiv1:classes.dropDownListDiv2}>
             {
                 Object.keys(props.list).map((key, index) => (
                     <div value={props.list[key].currencyId} key={index} style={{display:"flex"}}>

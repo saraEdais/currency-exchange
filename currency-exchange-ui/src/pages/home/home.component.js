@@ -1,34 +1,37 @@
-<<<<<<< HEAD
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import classes from './home.module.css'
 import Container from '../../components/container/container.component';
+import Navbar from "../../components/navBar/navbar.component";
 
 const Home = () => {
-  const [selected, setSelected] = useState("convert");
+  // const [selected, setSelected] = useState("convert");
+  const [currency, setCurrency] = useState({});
 
-  const selectedHandler = (selectName) => {
-    console.log(selected)
-    setSelected(selectName)
-  }
+  useEffect(async () => {
+    await fetch('https://free.currconv.com/api/v7/countries?apiKey=bf19efdeacde3c60c111')
+      .then(async (res) => {
+        const result = await res.json();
+        console.log("result.results", result.results);
+        setCurrency(result.results);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  // const selectedHandler = (selectName) => {
+  //   console.log(selected)
+  //   setSelected(selectName)
+  // }
 
   return <div className={classes.homeComponent}>
+    <Navbar />
     <Container
-      selected={selected}
-      selectedHandler={selectedHandler} />
+      currency={currency}
+      // selected={selected}
+      // selectedHandler={selectedHandler}
+       />
   </div>;
 };
 
-=======
-import React from 'react';
-import Navbar from "../../components/navBar/navbar.component";
-import Container from "../../components/container/container.component";
-export const Home = () => {
-  return (
-  <div>
-    <Navbar />
-    <Container/>
-  </div>
-  );
-};
->>>>>>> a28468c31a99eb21e8d760470c48b88c0c76da0b
 export default Home;
