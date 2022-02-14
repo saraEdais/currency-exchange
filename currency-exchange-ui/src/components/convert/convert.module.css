@@ -87,3 +87,8 @@
   flex-direction: column;
   position: relative;
 }
+.text{
+  display: flex;
+  align-items: center;
+  color:gray;
+}
