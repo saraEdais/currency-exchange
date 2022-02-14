@@ -3,10 +3,6 @@ import classes from './convert-input.module.css';
 
 const AmountInput = (props) => {
   return (
-    // <div>
-    //   <input className={classes.amountInput} value={props.value} onChange={props.onAmountValueChangeHandler} />
-    // </div>
-
     <div className={classes.currencyInputDiv}>
       <label>{props.label}</label>
       <input
