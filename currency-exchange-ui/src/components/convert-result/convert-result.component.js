@@ -1,14 +1,15 @@
 import React from 'react';
 import classes from './convert-result.module.css';
+import Clock from 'react-live-clock';
 
 const ConvertResult = (props) => {
     return (
         <div className={classes.resultDiv}>
             <p>
-                {props.amountValue} {props.firstCurrency} =
+                {props.amountValue} {props.firstCurrencyName} =
             </p>
             <h2>
-                {(props.amountValue)*(props.exchangeRate)} {props.secondCurrency}
+                {(props.amountValue) * (props.exchangeRate)} {props.secondCurrencyName}
             </h2>
             <div className={classes.currencyRateDiv}>
                 <div className={classes.currency}>
@@ -20,7 +21,10 @@ const ConvertResult = (props) => {
                 </div>
                 <div className={classes.transferButtonDiv}>
                     <button>view transfer quote</button>
-                    <div>Canadian Dollar to East Caribbean Dollar conversion — Last updated Jan 31, 2022, 20:46 UTC</div>
+                    <div><span className={classes.currencyName}>{props.firstCurrencyName}</span>
+                        to<span className={classes.currencyName}>{props.secondCurrencyName}</span>
+                        conversion — Last updated <Clock format={'HH:mm:ss'} ticking={false} timezone={'UTC/Pacific'} /> 
+                         UTC</div>
                 </div>
             </div>
 

@@ -5,76 +5,137 @@ import Switcher from '../switcher/switcher.component';
 import Button from '../button/button.component';
 import ConvertResult from '../convert-result/convert-result.component';
 import ConvertInput from '../convert-input/convert-input.component';
-import { EuroCircleOutlined } from "@ant-design/icons"
+import { EuroCircleOutlined, DownOutlined, CloseOutlined } from "@ant-design/icons"
 import { useLocation } from 'react-router-dom';
 
 const Convert = (props) => {
     let location = useLocation();
-    const [firstCurrency, setFirstCurrency] = useState("AUD");
-    const [secondCurrency, setSecondCurrency] = useState("XCD");
     const [amountValue, setAmountValue] = useState(0);
     const [exchangeRate, setExchangeRate] = useState("");
     const [reverseExchangeRate, setReverseExchangeRate] = useState("");
     const [isConvert, setIsConvert] = useState(false);
+    const [isCurrencyFromHandel, setIsCurrencyFromHandel] = useState(false);
+    const [isCurrencyToHandel, setIsCurrencyToHandel] = useState(false);
+    const [searchForCurrency, setSearchForCurrency] = useState("")
+    const [currencyFromInformation, setCurrencyFromInformation] = useState({
+        flagId: "",
+        currencyName: "",
+        currencyId: "",
+        currencySymbol: ""
+    });
 
-    const onSelectFirstCurrencyHandler = (e) => {
-        setFirstCurrency(e.target.value);
-    }
-    const onSelectSecondCurrencyHandler = (e) => {
-        setSecondCurrency(e.target.value);
-    }
+    const [currencyToInformation, setCurrencyToInformation] = useState({
+        flagId: "",
+        currencyName: "",
+        currencyId: "",
+        currencySymbol: ""
+    });
 
     const onAmountValueChangeHandler = (e) => {
         setAmountValue(e.target.value)
     }
+    const onFirstCurrencyChangeHandler = (e) => {
+        setSearchForCurrency(e.target.value)
+    }
+    const onSecondCurrencyChangeHandler = (e) => {
+        setSearchForCurrency(e.target.value)
+    }
+    const dropDownFromHandel = () => {
+        setIsCurrencyFromHandel(true)
+    }
+    const dropDownToHandel = () => {
+        setIsCurrencyToHandel(true)
+    }
 
     useEffect(() => {
-      if(isConvert){
-        onConvertHandler()
-      }
-    }, [amountValue,firstCurrency,secondCurrency]);
-    
+        setInterval(() => {
+            if (isConvert) {
+                onConvertHandler()
+            }
+        }, 30000);
+
+    }, [amountValue, currencyFromInformation, currencyToInformation]);
+
     useEffect(() => {
-        if(location.pathname==="/currency-converter/"){
-            props.PathNameHandel(location.pathname) 
+        if (location.pathname === "/currency-converter/") {
+            props.PathNameHandel(location.pathname)
         }
-        else{
+        else {
             props.PathNameHandel("/")
         }
     }, []);
-    
+
+    useEffect(() => {
+        Object.keys(props.currencyObj).filter(key => {
+            if (key === "AU") {
+                setCurrencyFromInformation({
+                    flagId: props.currencyObj[key].id,
+                    currencyName: props.currencyObj[key].currencyName,
+                    currencyId: props.currencyObj[key].currencyId,
+                    currencySymbol: props.currencyObj[key].currencySymbol
+                })
+            }
+            else if (key === "GB") {
+                setCurrencyToInformation({
+                    flagId: props.currencyObj[key].id,
+                    currencyName: props.currencyObj[key].currencyName,
+                    currencyId: props.currencyObj[key].currencyId,
+                    currencySymbol: props.currencyObj[key].currencySymbol
+                })
+            }
+        })
+    }, [])
+
+
+    useEffect(() => {
+        console.log(currencyFromInformation)
+    }, [isCurrencyToHandel, isCurrencyFromHandel]);
 
     const onConvertHandler = async () => {
         console.log("amount: ", amountValue);
-        await fetch(`https://free.currconv.com/api/v7/convert?q=${firstCurrency}_${secondCurrency}&compact=ultra&apiKey=bf19efdeacde3c60c111`)
+        await fetch(`https://free.currconv.com/api/v7/convert?q=${currencyFromInformation.currencyId}_${currencyToInformation.currencyId}&compact=ultra&apiKey=bf19efdeacde3c60c111`)
             .then(async (res) => {
                 const result = await res.json();
-                console.log("result: ", result);
-                const currenciesId = `${firstCurrency}_${secondCurrency}`;
-                console.log("currenciesId: ", currenciesId);
+                const currenciesId = `${currencyFromInformation.currencyId}_${currencyToInformation.currencyId}`;
                 setExchangeRate(result[currenciesId]);
-                console.log("exchange rate: ", result[currenciesId]);
             })
             .catch((error) => console.log(error));
 
-        await fetch(`https://free.currconv.com/api/v7/convert?q=${secondCurrency}_${firstCurrency}&compact=ultra&apiKey=bf19efdeacde3c60c111`)
+        await fetch(`https://free.currconv.com/api/v7/convert?q=${currencyToInformation.currencyId}_${currencyFromInformation.currencyId}&compact=ultra&apiKey=bf19efdeacde3c60c111`)
             .then(async (res) => {
                 const result = await res.json();
-                console.log("result: ", result);
-                const currenciesId = `${secondCurrency}_${firstCurrency}`;
-                console.log("currenciesId: ", typeof (currenciesId));
+                const currenciesId = `${currencyToInformation.currencyId}_${currencyFromInformation.currencyId}`;
                 setReverseExchangeRate(result[currenciesId]);
-                console.log("reverse exchange rate: ", result[currenciesId]);
             })
             .catch((error) => console.log(error));
         setIsConvert(true)
     }
 
     const onSwitchHandler = () => {
-        var temp = firstCurrency;
-        setFirstCurrency(secondCurrency);
-        setSecondCurrency(temp);
+        let temp = currencyFromInformation
+        setCurrencyFromInformation(currencyToInformation)
+        setCurrencyToInformation(temp)
     }
+
+    const currencyFromInformationHandel = (info) => {
+        setCurrencyFromInformation(info)
+    }
+    const currencyToInformationHandel = (info) => {
+        setCurrencyToInformation(info)
+    }
+    const closeFromHandel = () => {
+        setIsCurrencyFromHandel(false)
+    }
+    const closeToHandel = () => {
+        setIsCurrencyToHandel(false)
+    }
+    // useEffect(() => {
+    //     setIsCurrencyFromHandel(false)
+    // }, [currencyFromInformation])
+    // useEffect(() => {
+    //     setIsCurrencyToHandel(false)
+    // }, [currencyToInformation])
+
 
     return (
         <div className={classes.convertComponent}>
@@ -82,21 +143,60 @@ const Convert = (props) => {
                 <ConvertInput
                     label={"Amount"}
                     value={amountValue}
-                    placeholder={""}
-                    onChangeHandler={onAmountValueChangeHandler} />
-                <ConvertInput
-                    label={"From"}
-                    value={firstCurrency}
-                    placeholder={"type to search ..."}
-                    onChangeHandler={onSelectFirstCurrencyHandler} />
-                <DropDownList list={props.currencyObj} style={"1"}/>
+                    placeholder={"enter a number"}
+                    onChangeHandler={onAmountValueChangeHandler}
+                    symbol={currencyFromInformation.currencySymbol}
+                />
+                {(!isCurrencyFromHandel) &&
+                    <div className={classes.fromPart}>
+                        <label className={classes.fromLabel}>From</label>
+                        <div className={classes.currency} onClick={dropDownFromHandel}>
+                            <img className={classes.flagsStyle} src={`https://flagcdn.com/${(currencyFromInformation.flagId).toLowerCase()}.svg`}></img>
+                            <div>{currencyFromInformation.currencyId}-{currencyFromInformation.currencyName}</div>
+                            <DownOutlined className={classes.fromIcon} />
+                        </div>
+                    </div>}
+                {(isCurrencyFromHandel) && <>
+                    <ConvertInput
+                        label={"From"}
+                        placeholder={"type to search ..."}
+                        onChangeHandler={onFirstCurrencyChangeHandler}
+                        closeFromHandel={closeFromHandel}
+                    />
+                    <DropDownList
+                        list={props.currencyObj}
+                        style={"1"}
+                        currencyFromInformation={currencyFromInformationHandel}
+                        searchForCurrency={searchForCurrency}
+                    />
+                </>
+                }
+
                 <Switcher onSwitchHandler={onSwitchHandler} />
-                <ConvertInput
-                    label={"To"}
-                    value={secondCurrency}
-                    placeholder={"type to search ..."}
-                    onChangeHandler={onSelectSecondCurrencyHandler} />
-                <DropDownList list={props.currencyObj} style={"2"}/>
+                {(!isCurrencyToHandel) &&
+                    <div className={classes.fromPart}>
+                        <label className={classes.fromLabel}>To</label>
+                        <div className={classes.currency} onClick={dropDownToHandel}>
+                            <img className={classes.flagsStyle} src={`https://flagcdn.com/${(currencyToInformation.flagId).toLowerCase()}.svg`}></img>
+                            <div>{currencyToInformation.currencyId}-{currencyToInformation.currencyName}</div>
+                            <DownOutlined className={classes.toIcon} />
+                        </div>
+                    </div>
+                }
+
+                {(isCurrencyToHandel) && <>
+                    <ConvertInput
+                        label={"To"}
+                        placeholder={"type to search ..."}
+                        onChangeHandler={onSecondCurrencyChangeHandler}
+                        closeToHandel={closeToHandel}
+                    />
+                    <DropDownList
+                        list={props.currencyObj}
+                        style={"2"}
+                        currencyToInformation={currencyToInformationHandel}
+                        searchForCurrency={searchForCurrency} />
+                </>}
             </div>
             <div className={classes.convertButtonDiv}>
                 {
@@ -111,8 +211,10 @@ const Convert = (props) => {
             {
                 (isConvert && <ConvertResult
                     currency={props.currencyObj}
-                    firstCurrency={firstCurrency}
-                    secondCurrency={secondCurrency}
+                    firstCurrency={currencyFromInformation.currencyId}
+                    firstCurrencyName={currencyFromInformation.currencyName}
+                    secondCurrency={currencyToInformation.currencyId}
+                    secondCurrencyName={currencyToInformation.currencyName}
                     amountValue={amountValue}
                     exchangeRate={exchangeRate}
                     reverseExchangeRate={reverseExchangeRate} />)

@@ -40,19 +40,27 @@ const Alerts = (props) => {
     return <div className={classes.alertsComponent}>
         <div className={classes.subscribePart}>
             <ToastContainer />
-            <div>
+            <form>
                 <label>Email</label>
                 <input
                     className={isEntered ? classes.alertInputEnter : classes.alertInput}
-                    type="text"
+                    type="email"
+                    name="email"
+                    size="30" required
                     placeholder='enter your email'
                     value={email}
                     onChange={(e) => { setEmail(e.target.value) }} />
                 {
                     (isEntered && <div style={{ color: "red", fontSize: "10px", marginBottom: "40px" }}>you should enter your email</div>)
                 }
-            </div>
-            <Button buttonName={"subscribe"} onClickHandler={notifyHandler} />
+                <input
+                    type="submit"
+                    value="subscribe"
+                    className={classes.subscribeInput}
+                    onClick={notifyHandler}
+                    />
+            </form>
+
         </div>
         <div>
             <img className={classes.alertImg} src={alertImage} />

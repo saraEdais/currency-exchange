@@ -26,26 +26,24 @@ const Container = (props) => {
       <div className={classes.navBar}>
         <a href='/currency-converter/'
           name="convert"
-          // onClick={props.selectedHandler("convert")}
+          style={{"border-radius":" 10px 0 0 0"}}
           className={pathName === "/currency-converter/" || pathName==="/"? classes.anchorStyleSelected : classes.anchorStyle} >
           <DollarCircleOutlined />
           Convert
         </a>
         <a href='/send-money/'
           title='send'
-          // onClick={props.selectedHandler("send")}
           className={pathName === "/send-money/" ? classes.anchorStyleSelected : classes.anchorStyle}>
           <SendOutlined />
           Send
         </a>
         <a href='/currency-charts/'
-          // onClick={props.selectedHandler("charts")}
           className={pathName === "/currency-charts/" ? classes.anchorStyleSelected : classes.anchorStyle}>
           <LineChartOutlined />
           Charts
         </a>
         <a href='/rate-alerts/'
-          // onClick={props.selectedHandler("alerts")}
+        style={{"border-radius":"0 10px 0 0"}}
           className={pathName === "/rate-alerts/" ? classes.anchorStyleSelected : classes.anchorStyle}>
           <AlertOutlined />
           Alerts

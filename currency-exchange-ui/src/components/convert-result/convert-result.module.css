@@ -57,3 +57,7 @@
   border: 2px solid rgb(0, 111, 232);
   border-radius: 8px;
 }
+.currencyName{
+  color:rgb(73, 73, 212);
+  font-size: 15px;
+}
