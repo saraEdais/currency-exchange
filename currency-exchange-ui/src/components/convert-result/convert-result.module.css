@@ -1,0 +1,60 @@
+.resultDiv {
+    display: flex;
+    flex-direction: column;
+  }
+  .resultDiv p {
+    font-size: 16px;
+    color: rgb(92, 102, 123);
+    font-weight: 600;
+    margin: 0px;
+  }
+  .resultDiv h2 {
+    font-weight: 600;
+    color: rgb(46, 60, 87);
+    margin: 0px;
+    margin-bottom: 24px;
+  }
+  
+  .currencyRateDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .currency {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0px 24px 0px 0px;
+  }
+  .currencyRate {
+    font-size: 12px;
+    color: #5c667b;
+    margin: 0px;
+  }
+  .transferButtonDiv {
+    text-align: right;
+    flex-direction: column;
+  }
+  .transferButtonDiv button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0px;
+    width: auto;
+    cursor: pointer;
+    margin: 0px;
+    margin-bottom: 24px;
+    outline-offset: 4px;
+    font-weight: 400;
+    text-align: center;
+    text-decoration: none;
+    transition-property: background-color, border-color;
+    transition-duration: 0.3s;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: rgb(0, 111, 232);
+    background: none;
+    border: 2px solid rgb(0, 111, 232);
+    border-radius: 8px;
+  }
+  

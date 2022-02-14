@@ -1,12 +1,27 @@
 .dropDownDiv {
-    border: 1px solid rgb(221, 221, 221);
-    border-radius: 6px;
+    /* border: 1px solid rgb(221, 221, 221);
+    border-radius: 6px; */
     /* height: 40px; */
-    width: max-content;
+    /* width: max-content; */
 }
 
 .select {
-    border: none;
+    /* border: none;
     height: 40px;
-    font-size: 20px;
+    font-size: 20px; */
 }
+
+.flagsStyle {
+    border-radius: 5px;
+    margin: 2px 7px 2px 0px;
+    width: 11%;
+  }
+  .dropDownListDiv {
+    width: 320px;
+    height: 250px;
+    overflow-y: scroll;
+    border-radius: 5px;
+    padding: 12px;
+    display: none;
+  }
+  

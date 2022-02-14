@@ -1,0 +1,35 @@
+/* .amountInput { */
+    /* border: 1px solid rgb(221, 221, 221);
+    border-radius: 6px; */
+    /* height: 40px; */
+    /* width: max-content; */
+
+    /* border: none; */
+    /* height: 40px;
+    font-size: 20px; */
+/* } */
+
+
+.currencyInputDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .currencyInputDiv input {
+    height: 100%;
+    box-shadow:  rgb(0 17 51 / 5%) 0px 3px 15px;
+    padding: 12px 16px 12px 32px;
+    cursor: pointer;
+    background: none;
+    border: 1px solid rgb(221, 221, 221);
+    color: rgb(20, 30, 55);
+    border-radius: 6px;
+  }
+  .currencyInputDiv label {
+    display: inline-block;
+    font-weight: 600;
+    color: rgb(20, 30, 55);
+    margin-bottom: 5px;
+    margin-left: 5px;
+  }
+  

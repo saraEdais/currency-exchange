@@ -8,7 +8,6 @@ class User {
     #password;
     #visaCardNumber;
 
-
     async addUser(user) {
 
         const isExistingEmail = await connection.query(`SELECT * FROM users where lower(email)='${user.email}'`)
@@ -33,7 +32,7 @@ class User {
             return "the username already exists in the DataBase";
         }
 
-        const sqlQuery = `INSERT INTO USERS (ID,USERNAME,EMAIL,PASSWORD,VISACARDNUMBER) VALUES (NULL,'${user.username
+        const sqlQuery = `INSERT INTO USERS (USERNAME,EMAIL,PASSWORD,VISACARDNUMBER) VALUES ('${user.username
             }', '${user.email}','${user.password}','${user.visaCardNumber}')`;
         return await connection.query(sqlQuery)
             .then(([rows, fields]) => {

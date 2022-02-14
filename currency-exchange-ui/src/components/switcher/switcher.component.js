@@ -4,9 +4,15 @@ import exchangeImage from '../../assets/images/exchange.png'
 
 const Switcher = (props) => {
     return (
+        // <button className={classes.switcherButton} onClick={props.onSwitchHandler}>
+        //     <img className={classes.exchangeImage} src={exchangeImage}/>
+        // </button>
+
+        <div className={classes.switcherButtonDiv}>   
         <button className={classes.switcherButton} onClick={props.onSwitchHandler}>
-            <img className={classes.exchangeImage} src={exchangeImage}/>
+            <img className={classes.exchangeImage} src={exchangeImage} />
         </button>
+    </div>
     )
 }
 
