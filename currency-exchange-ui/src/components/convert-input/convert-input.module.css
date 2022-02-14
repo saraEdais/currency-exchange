@@ -6,10 +6,10 @@
   position: relative;
 }
 .currencyInputDiv input {
-  width: 230px;
+  width: 220px;
   height: 23px;
   box-shadow: rgb(0 17 51 / 5%) 0px 3px 15px;
-  padding: 13px 17px 12px 19px;
+  padding: 13px 17px 12px 27px;
   cursor: pointer;
   background: none;
   border: 1px solid rgb(221, 221, 221);
@@ -25,10 +25,11 @@
 }
 .symbol{
   position:absolute;
-  top:40px;
+  top:43px;
   left: 6px;
-  font-size: 18px;
-  padding-right: 3px;
+  font-size: 16px;
+  font-weight: 500;
+  padding-right: 5px;
 }
 .fromClose{
   position: absolute;
