@@ -6,10 +6,10 @@
   position: relative;
 }
 .currencyInputDiv input {
-  width: 220px;
+  width: 211px;
   height: 23px;
   box-shadow: rgb(0 17 51 / 5%) 0px 3px 15px;
-  padding: 13px 17px 12px 27px;
+  padding: 14px 17px 13px 30px;
   cursor: pointer;
   background: none;
   border: 1px solid rgb(221, 221, 221);
@@ -35,6 +35,6 @@
   position: absolute;
   font-size: 15px;
   color: rgb(68, 66, 66);
-  top: 45px;
-  left: 222px;
+  top: 47px;
+  left: 223px;
 }

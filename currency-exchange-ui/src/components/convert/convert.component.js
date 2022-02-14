@@ -5,7 +5,7 @@ import Switcher from '../switcher/switcher.component';
 import Button from '../button/button.component';
 import ConvertResult from '../convert-result/convert-result.component';
 import ConvertInput from '../convert-input/convert-input.component';
-import { EuroCircleOutlined, DownOutlined, CloseOutlined } from "@ant-design/icons"
+import { EuroCircleOutlined, DownOutlined } from "@ant-design/icons"
 import { useLocation } from 'react-router-dom';
 
 const Convert = (props) => {
@@ -129,12 +129,6 @@ const Convert = (props) => {
     const closeToHandel = () => {
         setIsCurrencyToHandel(false)
     }
-    // useEffect(() => {
-    //     setIsCurrencyFromHandel(false)
-    // }, [currencyFromInformation])
-    // useEffect(() => {
-    //     setIsCurrencyToHandel(false)
-    // }, [currencyToInformation])
 
 
     return (
@@ -156,7 +150,7 @@ const Convert = (props) => {
                             <DownOutlined className={classes.fromIcon} />
                         </div>
                     </div>}
-                {(isCurrencyFromHandel) && <>
+                {(isCurrencyFromHandel) && <div  className={classes.dropDownInput}>
                     <ConvertInput
                         label={"From"}
                         placeholder={"type to search ..."}
@@ -168,8 +162,9 @@ const Convert = (props) => {
                         style={"1"}
                         currencyFromInformation={currencyFromInformationHandel}
                         searchForCurrency={searchForCurrency}
+                        dropDownFromHandel={dropDownFromHandel}
                     />
-                </>
+                </div>
                 }
 
                 <Switcher onSwitchHandler={onSwitchHandler} />
@@ -184,7 +179,7 @@ const Convert = (props) => {
                     </div>
                 }
 
-                {(isCurrencyToHandel) && <>
+                {(isCurrencyToHandel) && <div className={classes.dropDownInput}>
                     <ConvertInput
                         label={"To"}
                         placeholder={"type to search ..."}
@@ -195,8 +190,10 @@ const Convert = (props) => {
                         list={props.currencyObj}
                         style={"2"}
                         currencyToInformation={currencyToInformationHandel}
-                        searchForCurrency={searchForCurrency} />
-                </>}
+                        searchForCurrency={searchForCurrency}
+                        dropDownToHandel={dropDownToHandel}
+                    />
+                </div>}
             </div>
             <div className={classes.convertButtonDiv}>
                 {

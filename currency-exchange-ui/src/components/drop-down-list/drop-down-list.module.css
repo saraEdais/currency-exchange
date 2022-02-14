@@ -4,26 +4,26 @@
   width: 15%;
 }
 .dropDownListDiv1 {
-  width: 230px;
+  width: 237px;
   height: 250px;
   overflow-y: scroll;
   border-radius: 5px;
   padding: 12px;
   position: absolute;
   top: 111%;
-  left: 35%;
+  left: 10%;
   box-shadow: rgb(35 55 80 / 30%) 0px 6px 12px;
   background-color: white;
 }
 .dropDownListDiv2 {
-  width: 230px;
+  width: 237px;
   height: 250px;
   overflow-y: scroll;
   border-radius: 5px;
   padding: 12px;
   position: absolute;
   top: 111%;
-  left: 72%;
+  left: 10%;
   box-shadow: rgb(35 55 80 / 30%) 0px 6px 12px;
   background-color: white;
 }

@@ -16,6 +16,7 @@ const DropDownList = (props) => {
                 currencySymbol: currencySymbol
             }
             )
+            props.dropDownFromHandel()
         }
         else {
             props.currencyToInformation({
@@ -25,6 +26,7 @@ const DropDownList = (props) => {
                 currencySymbol: currencySymbol
             }
             )
+            props.dropDownToHandel()
         }
     }
     useEffect(() => {

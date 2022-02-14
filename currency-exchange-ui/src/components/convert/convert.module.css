@@ -82,3 +82,8 @@
   top: 48px;
   left:220px;
 }
+.dropDownInput{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}

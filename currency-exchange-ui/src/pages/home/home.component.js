@@ -10,7 +10,8 @@ const Home = () => {
     await fetch('https://free.currconv.com/api/v7/countries?apiKey=bf19efdeacde3c60c111')
       .then(async (res) => {
         const result = await res.json();
-        setCurrency( result.results);
+        let results = result.results;
+        setCurrency(results);
       })
       .catch((error) => {
         console.log(error);
