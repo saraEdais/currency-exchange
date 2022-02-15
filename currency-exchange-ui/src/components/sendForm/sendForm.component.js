@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import classes from "./sendForm.module.css";
-import DropDownList from '../drop-down-list/drop-down-list.component';
 
 const SendForm = (props) => {
     const [senderName, setSenderName] = useState("");
@@ -9,18 +8,39 @@ const SendForm = (props) => {
     const [currency, setCurrency] = useState("");
     const [visaCardValue, setVisaCardValue] = useState("");
 
-    const onClickSendHandler = () => {
-        if (senderName.length !== 0 || receiverName.length !== 0 || visaCardValue.length !== 0) {
-            props.handelSendData(senderName, receiverName, visaCardValue);
-            setSenderName("");
-            setReceiverName("");
-            setVisaCardValue("")
-        }
-        else {
-            alert("you should enter all requirements")
-        }
-    }
 
+    const onClickSendHandler = async () => {
+
+        if (senderName.length === 0 || receiverName.length === 0 || visaCardValue.length === 0 || amount.length === 0 || currency.length === 0) {
+            alert("you should enter all requirements");
+            console.log("1111");
+            return;
+        }
+        await fetch("http://localhost:3001/moneyTransfer/addMoneyTransfer", {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                "senderName":senderName,
+                "receiverName":receiverName,
+                "transferAmount":amount,
+                "currency":currency
+            }),
+
+        })
+        .then((res) => {
+            console.log(res);
+            console.log(res.body);
+
+          })
+          .catch((err) => {
+            console.error(err);
+          });
+        console.log("222");
+
+    }
     return <div className={classes.SendForm}>
         <div style={{ display: "flex" }}>
             <div className={classes.inputDiv}>
