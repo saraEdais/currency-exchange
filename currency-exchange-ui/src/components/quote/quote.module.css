@@ -1,0 +1,17 @@
+.header {
+  color: white;
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  align-items: center;
+  text-align: center;
+}
+.title {
+  pointer-events: auto;
+  margin: 0;
+}
+.subTitle {
+  pointer-events: auto;
+  margin: 0;
+}

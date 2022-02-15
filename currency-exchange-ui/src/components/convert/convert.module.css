@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .convertComponent {
     display: flex;
     flex-direction: column;
@@ -25,3 +26,99 @@
     color:black;
   }
   
+=======
+@media screen and (max-width: 900px) {
+  .convertInputsDiv {
+    flex-direction: column;
+  }
+}
+.convertComponent {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px;
+  position: relative;
+}
+.convertInputsDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  position: relative;
+}
+.convertButtonDiv {
+  display: flex;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  justify-content: space-between;
+  margin-top: 24px;
+  width: 100%;
+}
+.amountIcon {
+  font-size: 20px;
+  position: absolute;
+  top: 39px;
+  color: black;
+}
+.currency {
+  display: flex;
+  flex-direction: row;
+  width:230px;
+  height: 23px;
+  box-shadow: rgb(0 17 51 / 5%) 0px 3px 15px;
+  padding: 16px 17px 12px 12px;
+  cursor: pointer;
+  background: none;
+  border: 1px solid rgb(221, 221, 221);
+  color: rgb(140, 141, 145);
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 400;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  outline: none;
+}
+.fromPart {
+  display: flex;
+  flex-direction: column;
+  margin: 0px 0px;
+  position: relative;
+}
+.fromLabel {
+  display: inline-block;
+  font-weight: 600;
+  color: rgb(20, 30, 55);
+  margin-bottom: 7px;
+  margin-left: 5px;
+}
+.flagsStyle {
+  border-radius: 5px;
+  margin: 2px 7px 2px 0px;
+  width: 13%;
+}
+.fromPart .fromIcon {
+  font-size: 15px;
+  color: rgb(68, 66, 66);
+  position: absolute;
+  top: 48px;
+  left: 220px;
+}
+.fromPart .toIcon {
+  font-size: 16px;
+  color: rgb(68, 66, 66);
+  position: absolute;
+  top: 48px;
+  left:220px;
+}
+.dropDownInput{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.text{
+  display: flex;
+  align-items: center;
+  color:gray;
+}
+>>>>>>> bb8f8cd57836d58217958331adf2926910fd9409

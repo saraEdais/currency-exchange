@@ -1,0 +1,52 @@
+.container {
+  position: absolute;
+  top: 33%;
+  left: 15%;
+  min-width: 70%;
+  min-height: 30%;
+  box-shadow: rgb(35 55 80 / 30%) 0px 6px 12px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  height: auto;
+}
+.navBar {
+  display: flex;
+  flex-direction: row;
+  min-height: 56px;
+  border-radius: 10px;
+}
+.anchorStyle {
+  flex: 1 1 0px;
+  display: inline-flex;
+  flex-direction: row;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 4px;
+  background-color: rgb(240, 245, 250);
+  color: rgb(55, 80, 110);
+  font-size: 14px;
+  text-decoration: none;
+  text-align: center;
+}
+.navBar a:hover {
+  opacity: 0.7;
+}
+.anchorStyleSelected {
+  flex: 1 1 0px;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  padding: 4px;
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 111, 232);
+  font-size: 14px;
+  font-weight: bold;
+  text-decoration: none;
+  text-align: center;
+}

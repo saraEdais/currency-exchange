@@ -1,15 +1,29 @@
-import React from 'react'
-import Convert from '../../components/convert/convert.component';
-import SendForm from '../../components/sendForm.component';
+import React, { useState, useEffect } from 'react';
+import classes from './home.module.css'
+import Container from '../../components/container/container.component';
+import Navbar from "../../components/navBar/navbar.component";
 
 const Home = () => {
-    return (
-        <div>
-            home
-            {/* <Convert /> */}
-            <SendForm />
-        </div>
-    )
-}
+  const [currency, setCurrency] = useState({});
 
-export default Home
+  useEffect(async () => {
+    await fetch('https://free.currconv.com/api/v7/countries?apiKey=bf19efdeacde3c60c111')
+      .then(async (res) => {
+        const result = await res.json();
+        let results = result.results;
+        setCurrency(results);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
+
+  return <div className={classes.homeComponent}>
+    <Navbar />
+    <Container
+      currency={currency}
+    />
+  </div>;
+};
+
+export default Home;
