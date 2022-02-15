@@ -1,11 +1,13 @@
 import React from 'react';
 import classes from './quote.module.css'
-export const Quote = () => {
-  return (<div>
-            <div className={classes.header}>
-        <h1>Xe Currency Converter</h1>
-        <h4>Check live foreign currency exchange rates</h4>
+export const Quote = (props) => {
+  return (
+    <div>
+      <div className={classes.header}>
+        <h1 className={classes.title}>{props.title}</h1>
+        <p className={classes.subTitle}>{props.subTitle}</p>
       </div>
-  </div>)
+    </div>
+  )
 };
 export default Quote;

@@ -1,0 +1,47 @@
+.sendForm {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.inputDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px 2px;
+}
+input {
+  height: 22px;
+  margin: 3px 3px 0px 0px;
+  width: 85%;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  box-shadow: rgb(0 17 51 / 5%) 0px 3px 15px;
+  padding: 5px;
+  color: rgb(20, 30, 55);
+  background: none;
+}
+span {
+  display: inline-block;
+  font-weight: 600;
+  color: rgb(20, 30, 55);
+  margin: 0px 9px;
+}
+.buttonStyle {
+  align-items: center;
+  width: auto;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  padding: 5px 12px;
+  font-size: 16px;
+  color: rgb(255, 255, 255);
+  background: rgb(0, 113, 235);
+  border: 2px solid rgb(0, 113, 235);
+  border-radius: 8px;
+  margin: 6px 13px;
+}
+
+.buttonStyle:hover {
+  background: rgb(92, 160, 233);
+  border: 2px solid rgb(92, 160, 233);
+}

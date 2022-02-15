@@ -1,4 +1,3 @@
-import './app.module.css';
 import Home from './pages/home/home.component';
 
 function App() {

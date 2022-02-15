@@ -1,6 +1,7 @@
 .wrapper {
   display: flex;
   position: relative;
+  width: 100%;
 }
 .logo {
   width: 80px;
