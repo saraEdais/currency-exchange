@@ -10,7 +10,15 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
+    "body-parser": "^1.19.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.2",
+    "mysql2": "^2.3.3",
+    "nodemon": "^2.0.15"
+=======
     "express": "^4.17.2",
     "mysql2": "^2.3.3"
+>>>>>>> bb8f8cd57836d58217958331adf2926910fd9409
   }
 }
