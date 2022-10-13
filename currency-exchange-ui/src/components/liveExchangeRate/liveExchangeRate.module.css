@@ -1,0 +1,21 @@
+.rateContainer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: aqua; */
+    margin: 20% 15%;
+}
+table{
+    margin: 50px 0px;
+    width: 100%;
+}
+/* .currencyAttribute{
+
+} */
+th {
+    color: rgb(20, 30, 55);
+    font-size: 16px;
+    font-family: sans-serif;
+    padding: 16px 8px;
+    border-bottom: 1px solid rgb(240, 245, 250);
+}
