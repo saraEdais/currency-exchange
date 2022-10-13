@@ -34,35 +34,6 @@ const Convert = (props) => {
     const onAmountValueChangeHandler = (e) => {
         setAmountValue(e.target.value)
     }
-<<<<<<< HEAD
-
-    const onConvertHandler = async () => {
-        console.log("amount: ", amountValue);
-        await fetch(`https://free.currconv.com/api/v7/convert?q=${firstCurrency}_${secondCurrency}&compact=ultra&apiKey=bf19efdeacde3c60c111`)
-            .then(async (res) => {
-                const result = await res.json();
-                console.log("result: ", result);
-                const currenciesId = `${firstCurrency}_${secondCurrency}`;
-                console.log("currenciesId: ", currenciesId);
-                setExchangeRate(result[currenciesId]);
-                console.log("exchange rate: ", result[currenciesId]);
-            })
-            .catch((error) => console.log(error));
-
-        await fetch(`https://free.currconv.com/api/v7/convert?q=${secondCurrency}_${firstCurrency}&compact=ultra&apiKey=bf19efdeacde3c60c111`)
-            .then(async (res) => {
-                const result = await res.json();
-                console.log("result: ", result);
-                const currenciesId = `${secondCurrency}_${firstCurrency}`;
-                console.log("currenciesId: ", typeof (currenciesId));
-                setReverseExchangeRate(result[currenciesId]);
-                console.log("reverse exchange rate: ", result[currenciesId]);
-            })
-            .catch((error) => console.log(error));
-
-        setOutput(amountValue * exchangeRate)
-        console.log("output", output)
-=======
     const onFirstCurrencyChangeHandler = (e) => {
         setSearchForCurrency(e.target.value)
     }
@@ -137,17 +108,10 @@ const Convert = (props) => {
                 setReverseExchangeRate(result[currenciesId]);
             })
             .catch((error) => console.log(error));
->>>>>>> bb8f8cd57836d58217958331adf2926910fd9409
         setIsConvert(true)
     }
 
     const onSwitchHandler = () => {
-<<<<<<< HEAD
-        var temp = firstCurrency;
-        setFirstCurrency(secondCurrency);
-        setSecondCurrency(temp);
-    }
-=======
         let temp = currencyFromInformation
         setCurrencyFromInformation(currencyToInformation)
         setCurrencyToInformation(temp)
@@ -166,19 +130,10 @@ const Convert = (props) => {
         setIsCurrencyToHandel(false)
     }
 
->>>>>>> bb8f8cd57836d58217958331adf2926910fd9409
 
     return (
         <div className={classes.convertComponent}>
             <div className={classes.convertInputsDiv}>
-<<<<<<< HEAD
-                <ConvertInput label={"Amount"} value={amountValue} onChangeHandler={onAmountValueChangeHandler} />
-                <ConvertInput label={"From"} value={firstCurrency} onChangeHandler={onSelectFirstCurrencyHandler} />
-                <DropDownList list={currency} />
-                <Switcher onSwitchHandler={onSwitchHandler} />
-                <ConvertInput label={"To"} value={secondCurrency} onChangeHandler={onSelectSecondCurrencyHandler} />
-                <DropDownList list={currency} />
-=======
                 <ConvertInput
                     label={"Amount"}
                     value={amountValue}
@@ -239,7 +194,6 @@ const Convert = (props) => {
                         dropDownToHandel={dropDownToHandel}
                     />
                 </div>}
->>>>>>> bb8f8cd57836d58217958331adf2926910fd9409
             </div>
             <div className={classes.convertButtonDiv}>
                 {
@@ -253,20 +207,12 @@ const Convert = (props) => {
             </div>
             {
                 (isConvert && <ConvertResult
-<<<<<<< HEAD
-                    currency={currency}
-                    firstCurrency={firstCurrency}
-                    secondCurrency={secondCurrency}
-                    amountValue={amountValue}
-                    output={output}
-=======
                     currency={props.currencyObj}
                     firstCurrency={currencyFromInformation.currencyId}
                     firstCurrencyName={currencyFromInformation.currencyName}
                     secondCurrency={currencyToInformation.currencyId}
                     secondCurrencyName={currencyToInformation.currencyName}
                     amountValue={amountValue}
->>>>>>> bb8f8cd57836d58217958331adf2926910fd9409
                     exchangeRate={exchangeRate}
                     reverseExchangeRate={reverseExchangeRate} />)
             }
